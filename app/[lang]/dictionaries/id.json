@@ -1,0 +1,39 @@
+{
+  "nav": {
+    "home": "Beranda",
+    "rooms": "Kamar",
+    "facilities": "Fasilitas",
+    "experiences": "Pengalaman",
+    "gallery": "Galeri",
+    "about": "Tentang Kami",
+    "contact": "Kontak"
+  },
+  "hero": {
+    "eyebrow": "Labuan Bajo · Komodo",
+    "title": "Wae Watu Reef Resort",
+    "subtitle": "Barefoot luxury di tepi Taman Nasional Komodo."
+  },
+  "showcase": {
+    "title": "Yang Tenang Selalu Lebih Dalam",
+    "subtitle": "Laut tidak terburu-buru, namun selalu sampai. Mungkin begitu juga cara terbaik untuk beristirahat."
+  },
+  "dining": {
+    "title": "Restoran",
+    "subtitle": "Sarapan dan hidangan harian disajikan di bawah atap bambu, dengan bahan segar dan pemandangan laut yang terbuka. Tersedia pilihan à la carte dan masakan Asia.",
+    "cta": "Selengkapnya"
+  },
+  "rooms": {
+    "title": "Kamar",
+    "subtitle": "Setiap kamar menghadap laut, dengan balkon pribadi dan interior kayu yang hangat.",
+    "cta": "Selengkapnya"
+  },
+  "footer": {
+    "tagline": "Luxury overwater resort di tepi Taman Nasional Komodo.",
+    "addressLabel": "Alamat",
+    "address": "Jl. Wae Watu, Batu Cermin, Labuan Bajo, NTT 86763",
+    "contactLabel": "Kontak",
+    "hoursLabel": "Check-in / Check-out",
+    "hours": "Check-in 14.00 · Check-out 12.00",
+    "rights": "Hak cipta dilindungi."
+  }
+}

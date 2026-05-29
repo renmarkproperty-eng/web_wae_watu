@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd \"c:/project/next.js/wae_watu_web\" && rm app/layout.tsx app/page.tsx && echo \"deleted\" && ls app)",
+      "Bash(npm run *)"
+    ],
+    "additionalDirectories": [
+      "c:\\project\\next.js\\wae_watu_web\\app"
+    ]
+  }
+}

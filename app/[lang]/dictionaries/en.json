@@ -1,0 +1,39 @@
+{
+  "nav": {
+    "home": "Home",
+    "rooms": "Rooms",
+    "facilities": "Facilities",
+    "experiences": "Experiences",
+    "gallery": "Gallery",
+    "about": "About Us",
+    "contact": "Contact"
+  },
+  "hero": {
+    "eyebrow": "Labuan Bajo · Komodo",
+    "title": "Wae Watu Reef Resort",
+    "subtitle": "Barefoot luxury at the edge of Komodo National Park."
+  },
+  "showcase": {
+    "title": "What Is Calm Runs Deeper",
+    "subtitle": "The sea is never in a hurry, yet it always arrives. Perhaps that is the truest way to rest."
+  },
+  "dining": {
+    "title": "The Restaurant",
+    "subtitle": "Breakfast and daily dishes served beneath a bamboo roof, with fresh ingredients and an open view of the sea. À la carte and Asian cuisine available.",
+    "cta": "Discover"
+  },
+  "rooms": {
+    "title": "Rooms",
+    "subtitle": "Every room faces the sea, with a private balcony and warm wooden interiors.",
+    "cta": "Discover"
+  },
+  "footer": {
+    "tagline": "Luxury overwater resort at the edge of Komodo National Park.",
+    "addressLabel": "Address",
+    "address": "Jl. Wae Watu, Batu Cermin, Labuan Bajo, NTT 86763",
+    "contactLabel": "Contact",
+    "hoursLabel": "Check-in / Check-out",
+    "hours": "Check-in 2 PM · Check-out 12 PM",
+    "rights": "All rights reserved."
+  }
+}
