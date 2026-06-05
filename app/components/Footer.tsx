@@ -10,9 +10,9 @@ type FooterLabels = {
   rights: string;
 };
 
-const PHONE = "+62 812-0000-0000";
-const WHATSAPP = "+62 812-0000-0000";
-const EMAIL = "stay@waewatu.com";
+const PHONE = "+62 821-9710-2971";
+const WHATSAPP = "+62 821-9710-2971";
+const EMAIL = "waewatureef@gmail.com";
 
 export default function Footer({ footer }: { footer: FooterLabels }) {
   return (
