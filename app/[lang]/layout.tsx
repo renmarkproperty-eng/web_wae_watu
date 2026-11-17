@@ -49,10 +49,10 @@ export default async function RootLayout({
   return (
     <html
       lang={lang}
-      className={`${cormorant.variable} ${jost.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${cormorant.variable} ${jost.variable} ${geistMono.variable} min-h-screen antialiased`}
     >
       <body
-        className="min-h-full flex flex-col font-sans"
+        className="min-h-screen flex flex-col font-sans"
         suppressHydrationWarning
       >
         <Navbar lang={lang as Locale} nav={dict.nav} />

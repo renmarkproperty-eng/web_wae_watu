@@ -12,8 +12,8 @@ type NavLabels = {
   facilities: string;
   experiences: string;
   gallery: string;
-  about: string;
-  contact: string;
+  about?: string;
+  contact?: string;
 };
 
 export default function Navbar({
@@ -28,13 +28,13 @@ export default function Navbar({
   const [open, setOpen] = useState(false);
 
   const menu = [
-    { label: nav.home, href: "#" },
-    { label: nav.rooms, href: "#kamar" },
-    { label: nav.facilities, href: "#fasilitas" },
-    { label: nav.experiences, href: "#pengalaman" },
-    { label: nav.gallery, href: "#galeri" },
-    { label: nav.about, href: "#tentang" },
-    { label: nav.contact, href: "#kontak" },
+    { label: nav.home, href: `/${lang}` },
+    { label: nav.rooms, href: `/${lang}/kamar` },
+    { label: nav.facilities, href: `/${lang}/fasilitas` },
+    { label: nav.experiences, href: `/${lang}/pengalaman` },
+    { label: nav.gallery, href: `/${lang}/galeri` },
+    { label: nav.about, href: `/${lang}/tentang` },
+    { label: nav.contact, href: `/${lang}/kontak` },
   ];
 
   const pathForLocale = (target: Locale) => {
@@ -43,10 +43,23 @@ export default function Navbar({
   };
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const handleScroll = () => {
+      const top =
+        window.pageYOffset ||
+        window.scrollY ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop ||
+        0;
+      setScrolled(top > 15);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    document.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   useEffect(() => {
@@ -56,55 +69,65 @@ export default function Navbar({
     };
   }, [open]);
 
+  const isHome =
+    pathname === `/${lang}` ||
+    pathname === `/${lang}/` ||
+    pathname === "/" ||
+    pathname === "";
+
+  const isLightNav = scrolled || !isHome;
+
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-          scrolled ? "bg-white shadow-md" : "bg-transparent"
+        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+          isLightNav
+            ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-charcoal/10"
+            : "bg-gradient-to-b from-black/80 via-black/40 to-transparent"
         }`}
       >
-        <nav className="mx-auto flex h-24 max-w-6xl items-center px-5">
+        <nav className="relative mx-auto flex h-20 sm:h-24 max-w-6xl items-center justify-between px-5 sm:px-8">
           <button
             type="button"
             aria-label="Buka menu"
             aria-expanded={open}
             onClick={() => setOpen(true)}
             className={`group flex flex-col gap-[5px] p-2 transition-colors duration-300 ${
-              scrolled ? "text-black" : "text-white"
+              isLightNav ? "text-charcoal" : "text-white"
             }`}
           >
-            <span className="h-px w-7 bg-current transition-all" />
-            <span className="h-px w-7 bg-current transition-all" />
-            <span className="h-px w-7 bg-current transition-all" />
+            <span className="h-0.5 w-7 bg-current transition-all" />
+            <span className="h-0.5 w-7 bg-current transition-all" />
+            <span className="h-0.5 w-7 bg-current transition-all" />
           </button>
 
           <Link
             href={`/${lang}`}
             aria-label="Wae Watu Reef Resort"
-            className="absolute left-1/2 -translate-x-1/2"
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center p-1"
           >
             <Image
               src="/images/logo.webp"
               alt="Wae Watu Reef Resort"
-              width={200}
-              height={143}
+              width={160}
+              height={114}
               priority
-              className={`h-20 w-auto object-contain transition-[filter] duration-300 ${
-                scrolled ? "" : "brightness-0 invert"
+              className={`h-12 sm:h-15 w-auto object-contain transition-all duration-300 ${
+                isLightNav ? "" : "brightness-0 invert"
               }`}
             />
           </Link>
 
           <div
             className={`ml-auto flex items-center gap-2 font-sans text-sm transition-colors duration-300 ${
-              scrolled ? "text-black" : "text-white"
+              isLightNav ? "text-charcoal" : "text-white"
             }`}
           >
             <Link
               href={pathForLocale("id")}
               aria-current={lang === "id"}
-              className={`px-1 transition-opacity ${
-                lang === "id" ? "font-medium" : "opacity-60 hover:opacity-100"
+              className={`px-1.5 py-0.5 transition-opacity ${
+                lang === "id" ? "font-bold text-sand-gold" : "opacity-70 hover:opacity-100"
               }`}
             >
               ID
@@ -113,8 +136,8 @@ export default function Navbar({
             <Link
               href={pathForLocale("en")}
               aria-current={lang === "en"}
-              className={`px-1 transition-opacity ${
-                lang === "en" ? "font-medium" : "opacity-60 hover:opacity-100"
+              className={`px-1.5 py-0.5 transition-opacity ${
+                lang === "en" ? "font-bold text-sand-gold" : "opacity-70 hover:opacity-100"
               }`}
             >
               EN
@@ -150,16 +173,16 @@ export default function Navbar({
           </button>
         </div>
 
-        <nav className="flex flex-1 flex-col gap-2 px-10 pt-6">
+        <nav className="flex flex-1 flex-col gap-3 px-10 pt-6">
           {menu.map((item) => (
-            <a
+            <Link
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="font-heading text-3xl tracking-wide text-black/80 transition-colors hover:text-black"
+              className="font-heading text-3xl tracking-wide text-black/80 transition-colors hover:text-sand-gold"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
       </aside>

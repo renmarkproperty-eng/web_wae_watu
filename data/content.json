@@ -1,0 +1,122 @@
+{
+  "admin": {
+    "username": "admin",
+    "password": "waewatu2026!"
+  },
+  "hero": {
+    "eyebrow": "Labuan Bajo · Komodo",
+    "title": "Wae Watu Reef Resort",
+    "subtitle": "Barefoot luxury di tepi Taman Nasional Komodo. Menginap di atas terumbu karang hidup dengan pemandangan laut lepas yang tenang."
+  },
+  "about": {
+    "title": "Kisah Wae Watu",
+    "subtitle": "Di mana hari diukur dari pasang surut air laut, bukan jam dinding.",
+    "story": "Wae Watu Reef Resort lahir dari kecintaan mendalam terhadap keindahan laut Flores dan kepulauan Komodo. Berdiri anggun di atas terumbu karang yang terjaga, resort kami menawarkan tempat peristirahatan eksklusif yang memadukan kenyamanan modern kelas dunia dengan kearifan arsitektur lokal Manggarai.\n\nSetiap sudut dirancang untuk menghadirkan ketenangan jiwa, jauh dari keramaian kota, menyatu dengan irama alam dan hembusan angin laut tropis.",
+    "conservation": {
+      "title": "Konservasi Terumbu Karang",
+      "description": "Kami berkomitmen melestarikan ekosistem laut Labuan Bajo melalui program restorasi karang berkelanjutan bersama komunitas lokal.",
+      "stats": [
+        {
+          "label": "Area Karang Dilindungi",
+          "value": "12 Hektar"
+        },
+        {
+          "label": "Spesies Ikan Terumbu",
+          "value": "250+"
+        },
+        {
+          "label": "Bibir Pantai Privat",
+          "value": "500 Meter"
+        }
+      ]
+    }
+  },
+  "facilities": [
+    {
+      "id": "dining",
+      "title": "Restoran Samudera",
+      "category": "Kuliner",
+      "description": "Menyajikan hidangan laut segar tangkapan harian, masakan khas Nusantara, dan kreasi kuliner internasional di bawah naungan atap bambu terbuka menghadap matahari terbenam.",
+      "image": "/images/resto_1.webp"
+    },
+    {
+      "id": "pool",
+      "title": "Infinity Reef Pool",
+      "category": "Relaksasi",
+      "description": "Kolam renang tanpa batas yang seolah menyatu dengan birunya air laut Flores, dilengkapi daybed nyaman dan layanan mocktail tropis.",
+      "image": "/images/section_2.webp"
+    },
+    {
+      "id": "jetty",
+      "title": "Dermaga Privat & Reef Ladder",
+      "category": "Aktivitas Laut",
+      "description": "Akses langsung dari resort menuju perahu phinisi serta tangga pribadi yang memudahkan Anda terjun langsung ke taman terumbu karang.",
+      "image": "/images/section_1.webp"
+    },
+    {
+      "id": "dive-center",
+      "title": "Pusat Snorkeling & Selam",
+      "category": "Olahraga Air",
+      "description": "Perlengkapan snorkeling dan diving bersertifikasi lengkap dengan instruktur berpengalaman yang siap memandu petualangan bawah laut Anda.",
+      "image": "/images/section_3.webp"
+    }
+  ],
+  "experiences": [
+    {
+      "id": "manta-snorkeling",
+      "title": "Berenang Bersama Manta Point",
+      "duration": "Setengah Hari",
+      "description": "Pengalaman tak terlupakan menyelam dan snorkeling bersama kawanan ikan Pari Manta raksasa di perairan jernih Flores.",
+      "image": "/images/section_3.webp",
+      "price": "Mulai Rp 1.200.000 / orang"
+    }
+  ],
+  "gallery": [
+    {
+      "id": "gal-1",
+      "title": "Bungalow di Atas Air",
+      "category": "Resort",
+      "image": "/images/hero.webp"
+    },
+    {
+      "id": "gal-2",
+      "title": "Suasana Santai Restoran",
+      "category": "Dining",
+      "image": "/images/resto_1.webp"
+    },
+    {
+      "id": "gal-3",
+      "title": "Panorama Terumbu Karang",
+      "category": "Pemandangan",
+      "image": "/images/section_1.webp"
+    },
+    {
+      "id": "gal-4",
+      "title": "Kenyamanan Kamar Tidur",
+      "category": "Kamar",
+      "image": "/images/room_1.webp"
+    },
+    {
+      "id": "gal-5",
+      "title": "Balkon Menghadap Samudra",
+      "category": "Kamar",
+      "image": "/images/room_2.webp"
+    },
+    {
+      "id": "gal-6",
+      "title": "Dermaga dan Air Laut Jernih",
+      "category": "Resort",
+      "image": "/images/section_2.webp"
+    }
+  ],
+  "contact": {
+    "address": "Jl. Wae Watu, Batu Cermin, Labuan Bajo, Komodo, Kabupaten Manggarai Barat, Nusa Tenggara Timur 86763",
+    "whatsapp": "+62 821-9710-2971",
+    "phone": "+62 821-9710-2971",
+    "email": "info@waewaturesort.com",
+    "checkin": "14.00 WITA",
+    "checkout": "12.00 WITA",
+    "instagram": "@waewaturesort",
+    "maps_embed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3946.064244243684!2d119.882944!3d-8.493056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2db467794b68e9a1%3A0x6b772c722513f50!2sLabuan%20Bajo%2C%20Komodo%2C%20West%20Manggarai%20Regency%2C%20East%20Nusa%20Tenggara!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid"
+  }
+}

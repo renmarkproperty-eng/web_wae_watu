@@ -21,6 +21,11 @@ function getLocale(request: NextRequest): string {
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // Do not redirect admin or API routes
+  if (pathname.startsWith("/admin") || pathname.startsWith("/api")) {
+    return;
+  }
+
   const hasLocale = locales.some(
     (locale) => pathname === `/${locale}` || pathname.startsWith(`/${locale}/`),
   );
@@ -32,5 +37,5 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!_next|images|favicon.ico|.*\\..*).*)"],
+  matcher: ["/((?!_next|images|uploads|favicon.ico|api|admin|.*\\..*).*)"],
 };
