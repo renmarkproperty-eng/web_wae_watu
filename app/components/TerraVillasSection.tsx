@@ -1,9 +1,13 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import {
   type TerraVilla,
   cleanHtmlText,
   getTerraBookingUrl,
 } from "@/lib/terra";
+import BookingModal from "./BookingModal";
 
 interface TerraVillasSectionProps {
   villas: TerraVilla[];
@@ -19,6 +23,7 @@ export default function TerraVillasSection({
   lang,
 }: TerraVillasSectionProps) {
   const isId = lang === "id";
+  const [bookingOpen, setBookingOpen] = useState(false);
   const bookingUrl = getTerraBookingUrl(propertySlug);
 
   const formatCurrency = (val: number) => {
@@ -46,11 +51,10 @@ export default function TerraVillasSection({
               : "Every room faces serene ocean views, featuring warm wooden interiors and premium resort amenities."}
           </p>
           <div className="mt-6 flex justify-center">
-            <a
-              href={bookingUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-sand-gold bg-sand-gold/10 px-5 py-2 font-sans text-xs font-semibold uppercase tracking-wider text-charcoal transition-all hover:bg-sand-gold hover:text-white"
+            <button
+              type="button"
+              onClick={() => setBookingOpen(true)}
+              className="inline-flex items-center gap-2 rounded-full border border-sand-gold bg-sand-gold/10 px-5 py-2 font-sans text-xs font-semibold uppercase tracking-wider text-charcoal transition-all hover:bg-sand-gold hover:text-white cursor-pointer"
             >
               <span>
                 {isId
@@ -70,7 +74,7 @@ export default function TerraVillasSection({
                 <polyline points="15 3 21 3 21 9" />
                 <line x1="10" y1="14" x2="21" y2="3" />
               </svg>
-            </a>
+            </button>
           </div>
         </div>
 
@@ -157,11 +161,10 @@ export default function TerraVillasSection({
 
                     {/* CTA Book on Terra */}
                     <div className="mt-8 border-t border-charcoal/10 pt-5">
-                      <a
-                        href={bookingUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex w-full items-center justify-center gap-3 rounded-xl bg-charcoal px-6 py-3.5 text-center font-sans text-xs font-semibold uppercase tracking-[0.18em] text-white transition-all duration-300 hover:bg-sand-gold hover:shadow-lg"
+                      <button
+                        type="button"
+                        onClick={() => setBookingOpen(true)}
+                        className="inline-flex w-full items-center justify-center gap-3 rounded-xl bg-charcoal px-6 py-3.5 text-center font-sans text-xs font-semibold uppercase tracking-[0.18em] text-white transition-all duration-300 hover:bg-sand-gold hover:shadow-lg cursor-pointer"
                       >
                         <span>
                           {isId ? "Pesan di Terra Prime" : "Book Now"}
@@ -180,7 +183,7 @@ export default function TerraVillasSection({
                           <polyline points="15 3 21 3 21 9" />
                           <line x1="10" y1="14" x2="21" y2="3" />
                         </svg>
-                      </a>
+                      </button>
                       <p className="mt-2 text-center font-sans text-[11px] text-charcoal/50">
                         {isId
                           ? "Reservasi langsung melalui sistem pemesanan resmi Terra"
@@ -202,6 +205,13 @@ export default function TerraVillasSection({
           </div>
         )}
       </div>
+
+      <BookingModal
+        isOpen={bookingOpen}
+        onClose={() => setBookingOpen(false)}
+        lang={lang}
+        propertySlug={propertySlug}
+      />
     </section>
   );
 }

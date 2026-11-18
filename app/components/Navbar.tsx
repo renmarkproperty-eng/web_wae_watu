@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { Locale } from "../[lang]/dictionaries";
+import BookingModal from "./BookingModal";
 
 type NavLabels = {
   home: string;
@@ -26,6 +27,7 @@ export default function Navbar({
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [bookingOpen, setBookingOpen] = useState(false);
 
   const menu = [
     { label: nav.home, href: `/${lang}` },
@@ -244,10 +246,12 @@ export default function Navbar({
 
         {/* CTA & Quick Actions */}
         <div className="border-t border-white/10 p-7 bg-white/[0.02] space-y-4">
-          <a
-            href="https://terraprime.id/detail/hotel/wae-watu-hotel-resort"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            type="button"
+            onClick={() => {
+              setOpen(false);
+              setBookingOpen(true);
+            }}
             className="flex w-full items-center justify-center gap-2 rounded-xl bg-sand-gold py-3.5 px-5 font-sans text-xs font-bold uppercase tracking-[0.2em] text-charcoal shadow-md transition-all hover:bg-white hover:shadow-lg"
           >
             <span>{lang === "id" ? "Reservasi Villa" : "Book Your Stay"}</span>
@@ -264,7 +268,7 @@ export default function Navbar({
                 d="M14 5l7 7m0 0l-7 7m7-7H3"
               />
             </svg>
-          </a>
+          </button>
 
           <a
             href="https://wa.me/6282197102971?text=Halo%20Wae%20Watu%20Reef%20Resort,%20saya%20ingin%20bertanya%20tentang%20reservasi"
@@ -296,6 +300,12 @@ export default function Navbar({
           </div>
         </div>
       </aside>
+
+      <BookingModal
+        isOpen={bookingOpen}
+        onClose={() => setBookingOpen(false)}
+        lang={lang}
+      />
     </>
   );
 }
