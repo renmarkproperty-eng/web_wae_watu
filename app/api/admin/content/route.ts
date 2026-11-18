@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getCMSContent, updateCMSContent } from "@/lib/cms";
 import { verifyAdminSession } from "@/lib/auth";
+import { revalidatePath } from "next/cache";
 
 export async function GET() {
   const isAuth = await verifyAdminSession();
@@ -27,6 +28,7 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
     const updated = await updateCMSContent(body);
+    revalidatePath("/", "layout");
     return NextResponse.json({ success: true, data: updated });
   } catch (error) {
     console.error("[CMS API] Error updating content:", error);

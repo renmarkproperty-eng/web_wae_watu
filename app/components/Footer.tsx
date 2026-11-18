@@ -38,16 +38,6 @@ export default function Footer({ footer }: { footer: FooterLabels }) {
               {footer.tagline ||
                 "Barefoot luxury resort di atas terumbu karang Labuan Bajo, tepi Taman Nasional Komodo."}
             </p>
-            <div className="pt-2">
-              <a
-                href={`https://wa.me/${WHATSAPP.replace(/[^0-9]/g, "")}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-sand-gold px-4 py-2 font-sans text-xs font-semibold text-charcoal hover:bg-white transition-colors uppercase tracking-wider"
-              >
-                <span>WhatsApp Concierge</span>
-              </a>
-            </div>
           </div>
 
           {/* Col 2: Navigation Links */}
