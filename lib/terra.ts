@@ -73,20 +73,12 @@ export function cleanHtmlText(raw: string | null | undefined): string {
 
 /**
  * Build direct booking URL to Terra Web
+ * Directs directly to Wae Watu detail page where Terra Prime automatically
+ * defaults check-in to today and check-out to tomorrow.
  */
 export function getTerraBookingUrl(slug: string = getWaeWatuSlug()): string {
   const baseUrl = getTerraBaseUrl();
-
-  const now = new Date();
-  const tomorrow = new Date();
-  tomorrow.setDate(now.getDate() + 1);
-
-  const pad = (n: number) => n.toString().padStart(2, "0");
-  const d1 = `${pad(now.getDate())}-${pad(now.getMonth() + 1)}-${now.getFullYear()}`;
-  const d2 = `${pad(tomorrow.getDate())}-${pad(tomorrow.getMonth() + 1)}-${tomorrow.getFullYear()}`;
-
-  const checkInOut = `${d1}+-+${d2}`;
-  return `${baseUrl}/detail/hotel/${slug}?check_InOut=${checkInOut}&interval_id=2&rooms=1&adults=1&children=0`;
+  return `${baseUrl}/detail/hotel/${slug}`;
 }
 
 /**
